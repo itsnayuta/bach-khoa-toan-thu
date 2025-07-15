@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bách Khoa Toàn Thư - Game Nguyên Tố</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: #f4f4f4; 
+            font-size: 18px; 
+            line-height: 1.6;
+        }
+        h1 { 
+            color: #333; 
+            font-size: 2.5em; 
+            text-align: center; 
+            margin-bottom: 30px; 
+        }
+        h2 { 
+            color: #333; 
+            font-size: 1.5em; 
+            margin-bottom: 15px; 
+        }
+        .section { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 10px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 15px; 
+            font-size: 16px; 
+        }
+        th, td { 
+            border: 1px solid #ccc; 
+            padding: 12px; 
+            text-align: center; 
+        }
+        th { 
+            background: #eee; 
+            font-size: 17px; 
+            font-weight: bold; 
+        }
+        td { 
+            font-size: 16px; 
+        }
+        code { 
+            background: #eee; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            font-size: 16px; 
+        }
+        ul, ol { 
+            font-size: 18px; 
+        }
+        li { 
+            margin-bottom: 8px; 
+            line-height: 1.6; 
+        }
+        strong { 
+            font-size: 18px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Bách Khoa Toàn Thư: Game Hệ Nguyên Tố</h1>
+
+    <div class="section">
+        <h2>1. Bảng Khắc Chế Hệ</h2>
+        <table>
+            <tr><th>Hệ</th><th>Khắc</th></tr>
+            <tr><td>🔥 Fire</td><td>🌿 Wood</td></tr>
+            <tr><td>🌪 Wind</td><td>🪨 Earth</td></tr>
+            <tr><td>⚡ Lightning</td><td>💧 Water</td></tr>
+            <tr><td>💧 Water</td><td>🔥 Fire</td></tr>
+            <tr><td>🌿 Wood</td><td>⚡ Lightning</td></tr>
+            <tr><td>🪨 Earth</td><td>🌪 Wind</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>2. Hiệu Ứng Của Hệ Nguyên Tố</h2>
+        <table>
+            <tr><th>Hệ</th><th>Loại</th><th>Hiệu ứng</th></tr>
+            <tr><td>🔥 Fire</td><td>Tấn công</td><td>+10% ATK (chỉ áp dụng trong lượt này)</td></tr>
+            <tr><td>🌪 Wind</td><td>Tấn công</td><td>+10% Né (chỉ áp dụng trong lượt này)</td></tr>
+            <tr><td>⚡ Lightning</td><td>Tấn công</td><td>+20% Crit (chỉ áp dụng trong lượt này)</td></tr>
+            <tr><td>💧 Water</td><td>Phòng thủ</td><td>Hồi 5% HP, -20% sát thương nhận (trong lượt này)</td></tr>
+            <tr><td>🌿 Wood</td><td>Phòng thủ</td><td>+15% tỉ lệ phản đòn (duy trì 2 lượt)</td></tr>
+            <tr><td>🪨 Earth</td><td>Phòng thủ</td><td>+50% kháng sát thương (chỉ trong lượt này)</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>3. Công Thức Tính Toán Cơ Bản</h2>
+        <ul>
+            <li><strong>Sát thương cơ bản:</strong> <code>ATK * (1 + CRIT%) * ComboBonus</code></li>
+            <li><strong>Sát thương nhận:</strong> <code>Damage * (1 - Resist%)</code></li>
+            <li><strong>Phản đòn:</strong> <code>Damage * Counter% (mặc định 30%)</code></li>
+            <li><strong>Khắc hệ:</strong> ComboBonus giảm 50% nếu bị khắc</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Combo 2 Viên Xúc Xắc</h2>
+        <table>
+            <tr><th>Combo</th><th>Hiệu ứng</th></tr>
+            <tr><td>🔥 Fire + 🌪 Wind</td><td>+10% Né, +15% Crit (chỉ trong lượt này)</td></tr>
+            <tr><td>🌿 Wood + 💧 Water</td><td>+5% Hồi HP, +15% Counter (duy trì 2 lượt)</td></tr>
+            <tr><td>⚡ Lightning + 🌪 Wind</td><td>Giảm Né đối thủ 10% (trong lượt này)</td></tr>
+            <tr><td>🔥 Fire + ⚡ Lightning</td><td>+20% Crit, -10% Resist đối thủ (chỉ trong lượt này)</td></tr>
+            <tr><td>💧 Water + 🪨 Earth</td><td>-15% sát thương nhận, +10% hồi HP (trong lượt này)</td></tr>
+            <tr><td>🌿 Wood + ⚡ Lightning</td><td>+10% phản đòn (duy trì 2 lượt), gây 5% damage phụ (chỉ lượt này)</td></tr>
+            <tr><td>🔥 Fire + 💧 Water</td><td>Giảm 20% ATK đối thủ (duy nhất 1 lượt)</td></tr>
+            <tr><td>🌪 Wind + 🌿 Wood</td><td>+10% Né (1 lượt), +5% Counter (2 lượt)</td></tr>
+            <tr><td>⚡ Lightning + 🪨 Earth</td><td>+20% Crit (1 lượt), -5% né bản thân (1 lượt)</td></tr>
+            <tr><td>🪨 Earth + 🌪 Wind</td><td>+20% kháng (1 lượt), giảm Crit đối thủ (1 lượt)</td></tr>
+            <tr><td>🔥 Fire + 🌿 Wood</td><td>Gây 10% damage chuẩn, bỏ qua phòng thủ (chỉ trong lượt này)</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>5. Combo Bộ Ba Đặc Biệt (Ultimate)</h2>
+        <ul>
+            <li><strong>🔥🔥🌪 (Inferno Gust):</strong> Nếu người chơi giữ 2 viên Fire, hệ thống tung ra Wind → Gây damage cực lớn, bỏ qua né tránh</li>
+            <li><strong>🌪🌪⚡ (Storm Jolt):</strong> Nếu người chơi giữ 2 Wind, hệ thống tung ra Lightning → Crit 100% lượt này</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. Kết Thúc Trận Đấu</h2>
+        <ul>
+            <li>Trận đấu diễn ra trong tối đa 10 lượt</li>
+            <li>Nếu không ai chết sau 10 lượt → Người gây tổng sát thương cao hơn thắng</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Hướng Dẫn Cách Chơi</h2>
+        <ol>
+            <li><strong>Khởi đầu trận:</strong> Mỗi người chơi có 2 xúc xắc ngẫu nhiên; hệ thống tung ra 3 xúc xắc dùng chung.</li>
+            <li><strong>Lựa chọn hành động:</strong> Trong vòng 30 giây, mỗi người chơi chọn:
+                <ul>
+                    <li>2 viên để tạo <strong>combo hành động</strong> (1 viên từ tay, 1 viên từ hệ thống).</li>
+                    <li>1 viên còn lại để <strong>chọn hệ chính</strong> (quyết định tấn công/phòng thủ).</li>
+                </ul>
+            </li>
+            <li><strong>Loại hành động:</strong>
+                <ul>
+                    <li><strong>Tấn công:</strong> Nếu hệ chính là 🔥 Fire, 🌪 Wind, hoặc ⚡ Lightning.</li>
+                    <li><strong>Phòng thủ:</strong> Nếu hệ chính là 💧 Water, 🌿 Wood, hoặc 🪨 Earth.</li>
+                </ul>
+            </li>
+            <li><strong>Tính toán hiệu ứng:</strong>
+                <ul>
+                    <li>Áp dụng hiệu ứng từ combo.</li>
+                    <li>Áp dụng khắc hệ (nếu bị khắc → hiệu ứng combo giảm 50%).</li>
+                </ul>
+            </li>
+            <li><strong>Giao tranh:</strong>
+                <ul>
+                    <li>Nếu một người tấn công, một người phòng thủ → Áp dụng hệ thống phản đòn (Counter).</li>
+                    <li>Người chơi phòng thủ có thể giữ lại 1 xúc xắc từ lượt trước.</li>
+                </ul>
+            </li>
+            <li><strong>Kết thúc lượt:</strong>
+                <ul>
+                    <li>Làm mới xúc xắc trên tay.</li>
+                    <li>Cập nhật hiệu ứng kéo dài (duy trì 2 lượt,...).</li>
+                    <li>Tiếp tục sang lượt tiếp theo.</li>
+                </ul>
+            </li>
+            <li><strong>Kết thúc trận:</strong> Sau 10 lượt hoặc khi 1 người bị hạ gục.
+                <ul>
+                    <li>Nếu chưa ai bị hạ gục → người gây tổng sát thương cao hơn sẽ thắng.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>
